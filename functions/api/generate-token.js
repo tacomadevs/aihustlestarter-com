@@ -1,4 +1,4 @@
-import { createToken } from '../_shared/auth.js';
+import { createMagicLinkToken } from '../_shared/auth.js';
 
 export async function onRequestPost({ request, env }) {
   if (request.headers.get('X-Webhook-Secret') !== env.GHL_WEBHOOK_SECRET) {
@@ -21,7 +21,7 @@ export async function onRequestPost({ request, env }) {
     });
   }
 
-  const token = await createToken(email, env.LESSON_JWT_SECRET);
+  const token = await createMagicLinkToken(email, env.LESSON_JWT_SECRET);
   const accessUrl = `https://aihustlestarter.com/lessons/access?token=${encodeURIComponent(token)}`;
 
   return new Response(JSON.stringify({ accessUrl }), {

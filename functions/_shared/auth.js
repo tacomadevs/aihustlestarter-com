@@ -9,11 +9,21 @@ async function computeHmac(secret, message) {
   return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-export async function createToken(email, secret) {
-  const expiry = Date.now() + 365 * 24 * 60 * 60 * 1000;
+async function createTokenWithExpiry(email, secret, ttlMs) {
+  const expiry = Date.now() + ttlMs;
   const payload = `${email.toLowerCase()}${SEP}${expiry}`;
   const hmac = await computeHmac(secret, payload);
   return btoa(`${payload}${SEP}${hmac}`);
+}
+
+// Short-lived token for magic link URLs — 15 minutes
+export async function createMagicLinkToken(email, secret) {
+  return createTokenWithExpiry(email, secret, 15 * 60 * 1000);
+}
+
+// Long-lived token for the session cookie — 1 year
+export async function createSessionToken(email, secret) {
+  return createTokenWithExpiry(email, secret, 365 * 24 * 60 * 60 * 1000);
 }
 
 export async function verifyToken(token, secret) {
