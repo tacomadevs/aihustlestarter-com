@@ -1,4 +1,4 @@
-import { createMagicLinkToken } from '../_shared/auth.js';
+import { createClerkClient } from '@clerk/backend';
 
 export async function onRequestPost({ request, env }) {
   if (request.headers.get('X-Webhook-Secret') !== env.GHL_WEBHOOK_SECRET) {
@@ -22,10 +22,28 @@ export async function onRequestPost({ request, env }) {
     });
   }
 
-  const token = await createMagicLinkToken(email, env.LESSON_JWT_SECRET);
-  const accessUrl = `https://aihustlestarter.com/lessons/access?token=${encodeURIComponent(token)}`;
+  const clerk = createClerkClient({ secretKey: env.CLERK_SECRET_KEY });
 
-  // Write magic link directly to GHL contact so email can use {{contact.lesson_access_url}}
+  // Find or create Clerk user
+  let userId;
+  const existing = await clerk.users.getUserList({ emailAddress: [email] });
+  const users = existing?.data ?? existing;
+  if (Array.isArray(users) && users.length > 0) {
+    userId = users[0].id;
+  } else {
+    const user = await clerk.users.createUser({ emailAddress: [email] });
+    userId = user.id;
+  }
+
+  // Create a 24-hour sign-in token
+  const signInToken = await clerk.signInTokens.createSignInToken({
+    userId,
+    expiresInSeconds: 86400,
+  });
+
+  const accessUrl = `https://aihustlestarter.com/lessons/access?token=${signInToken.token}`;
+
+  // Write access URL directly to GHL contact field
   if (contactId && env.GHL_API_KEY) {
     await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}`, {
       method: 'PUT',
