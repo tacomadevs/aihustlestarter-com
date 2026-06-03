@@ -9,12 +9,12 @@ export const headerData = {
     {
       text: 'Access My Lessons',
       href: getPermalink('/lessons'),
-      variant: 'secondary',
+      variant: 'secondary' as const,
     },
     {
       text: 'Get the Pack',
       href: '#buy',
-      variant: 'primary',
+      variant: 'primary' as const,
     },
   ],
 };
