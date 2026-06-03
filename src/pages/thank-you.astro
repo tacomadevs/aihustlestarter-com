@@ -1,0 +1,92 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = { title: 'You\'re in — AI HustleStarter' };
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Hero confirmation -->
+  <section class="py-24" style="background: linear-gradient(135deg, #0f0a1e 0%, #1a0a2e 50%, #0a0a14 100%); min-height: 60vh; display: flex; align-items: center;">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center w-full">
+
+      <!-- Check mark -->
+      <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8" style="background: rgba(245, 166, 35, 0.15); border: 2px solid #f5a623;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <p class="text-sm font-bold uppercase tracking-widest mb-4" style="color: #f5a623;">Purchase confirmed</p>
+      <h1 class="text-4xl md:text-5xl font-black text-white mb-6" style="font-family: 'Space Grotesk', sans-serif;">
+        You're in. Let's build.
+      </h1>
+      <p class="text-lg mb-4" style="color: rgba(250, 247, 242, 0.75);">
+        Check your email — your lesson access link is on its way.
+      </p>
+      <p class="text-sm" style="color: rgba(250, 247, 242, 0.45);">
+        The link expires in 15 minutes. Click it to unlock your lessons and set your access cookie — after that, you're in for good.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- What happens next -->
+  <section class="py-16" style="background: #faf7f2;">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black mb-8 text-center" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">What happens next</h2>
+      <ol class="space-y-6">
+        {[
+          {
+            step: '1',
+            title: 'Open your confirmation email',
+            body: 'Look for an email from AI HustleStarter. Check spam if it\'s not in your inbox within a few minutes.',
+          },
+          {
+            step: '2',
+            title: 'Click "Access My Lessons"',
+            body: 'The link is good for 15 minutes. Click it once and your browser saves a 1-year access cookie — no login needed after that.',
+          },
+          {
+            step: '3',
+            title: 'Start with Lesson 01',
+            body: 'Don\'t skip ahead. Each lesson sets up the next. Most people finish all 10 in a weekend.',
+          },
+        ].map(({ step, title, body }) => (
+          <li class="flex gap-5 items-start">
+            <span class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-black text-sm" style="background: #2d0f5e; color: #f5a623;">{step}</span>
+            <div>
+              <p class="font-bold mb-1" style="color: #2d0f5e;">{title}</p>
+              <p class="text-sm" style="color: rgba(26, 10, 46, 0.65);">{body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Already clicked the link? -->
+  <section class="py-12" style="background: #ede0f9;">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+      <p class="font-bold mb-2" style="color: #2d0f5e;">Already clicked your email link?</p>
+      <p class="text-sm mb-6" style="color: rgba(26, 10, 46, 0.65);">Your lessons are unlocked — head straight in.</p>
+      <a
+        href="/lessons"
+        class="inline-flex items-center gap-2 font-black py-3 px-8 rounded-full transition-colors"
+        style="background: #2d0f5e; color: white;"
+      >
+        Go to my lessons →
+      </a>
+    </div>
+  </section>
+
+  <!-- Need help -->
+  <section class="py-12" style="background: #faf7f2;">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-sm" style="color: rgba(26, 10, 46, 0.50);">
+        No email after 10 minutes? <a href="/support" class="underline" style="color: #5a2fa0;">Contact support →</a>
+      </p>
+    </div>
+  </section>
+
+</Layout>
