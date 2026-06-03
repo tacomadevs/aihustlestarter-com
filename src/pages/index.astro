@@ -4,6 +4,7 @@ import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import GhlForm from '~/components/GhlForm.astro';
+import { CHECKOUT } from '~/checkout';
 
 const metadata = {
   title: 'AI Hustle Starter Pack — Your AI side hustle starts here',
@@ -11,6 +12,7 @@ const metadata = {
 };
 
 const BUY_URL = '#buy';
+const PRO_CHECKOUT_URL = CHECKOUT.pro || '#buy';
 ---
 
 <Layout metadata={metadata}>
@@ -241,7 +243,7 @@ const BUY_URL = '#buy';
         Workbook shipped to your door. All 10 lessons unlocked. 1 new lesson every month. Cancel any time.
       </p>
       <a
-        href="#"
+        href={PRO_CHECKOUT_URL}
         class="inline-flex items-center justify-center font-black text-lg py-4 px-10 rounded-full transition-colors mb-4"
         style="background: #f5a623; color: #2d0f5e; display: block; max-width: 360px; margin: 0 auto 16px;"
       >
@@ -296,7 +298,7 @@ const BUY_URL = '#buy';
   <!-- Final CTA -->
   <CallToAction
     actions={[
-      { variant: 'primary', text: 'Get the Starter Bundle — $36/mo', href: BUY_URL },
+      { variant: 'primary', text: 'Get the Starter Bundle — $36/mo', href: PRO_CHECKOUT_URL },
     ]}
   >
     <Fragment slot="title">

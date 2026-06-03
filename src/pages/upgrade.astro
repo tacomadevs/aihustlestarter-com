@@ -1,5 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import { CHECKOUT } from '~/checkout';
 
 const metadata = { title: 'Upgrade — Go Pro or VIP' };
 ---
@@ -44,11 +45,13 @@ const metadata = { title: 'Upgrade — Go Pro or VIP' };
               </li>
             ))}
           </ul>
-          <!-- GHL Newsletter $9/mo checkout embed — see ghl-build-brief.md item 11 -->
-          <div class="rounded-xl p-4 text-center" style="background: #ede0f9; border: 1px dashed #5a2fa0;">
-            <p class="text-sm font-medium mb-1" style="color: #5a2fa0;">Newsletter signup form</p>
-            <p class="text-xs" style="color: rgb(26 10 46 / 50%);">GHL embed goes here</p>
-          </div>
+          <a
+            href={CHECKOUT.newsletter || '/upgrade#free'}
+            class="block w-full text-center font-black py-3 px-6 rounded-xl transition-colors"
+            style="background: #5a2fa0; color: white;"
+          >
+            Subscribe — $9/mo →
+          </a>
         </div>
 
         <!-- Starter Bundle -->
@@ -72,11 +75,13 @@ const metadata = { title: 'Upgrade — Go Pro or VIP' };
               </li>
             ))}
           </ul>
-          <!-- GHL PRO $36/mo checkout embed — see ghl-build-brief.md item 11 -->
-          <div class="rounded-xl p-4 text-center" style="background: rgb(255 255 255 / 10%); border: 1px dashed rgb(245 166 35 / 60%);">
-            <p class="text-sm font-medium mb-1 text-white">PRO checkout</p>
-            <p class="text-xs" style="color: rgb(250 247 242 / 50%);">GHL embed goes here</p>
-          </div>
+          <a
+            href={CHECKOUT.pro || '/#buy'}
+            class="block w-full text-center font-black py-3 px-6 rounded-xl transition-colors"
+            style="background: #f5a623; color: #2d0f5e;"
+          >
+            Get PRO — $36/mo →
+          </a>
         </div>
 
         <!-- VIP -->
@@ -100,11 +105,13 @@ const metadata = { title: 'Upgrade — Go Pro or VIP' };
               </li>
             ))}
           </ul>
-          <!-- GHL VIP $96/mo checkout embed — see ghl-build-brief.md item 11 -->
-          <div class="rounded-xl p-4 text-center" style="background: #fef3d8; border: 1px dashed #f5a623;">
-            <p class="text-sm font-medium mb-1" style="color: #5a2fa0;">VIP checkout</p>
-            <p class="text-xs" style="color: rgb(26 10 46 / 50%);">GHL embed goes here</p>
-          </div>
+          <a
+            href={CHECKOUT.vip || '/upgrade#free'}
+            class="block w-full text-center font-black py-3 px-6 rounded-xl transition-colors"
+            style="background: #f5a623; color: #2d0f5e;"
+          >
+            Get VIP — $96/mo →
+          </a>
         </div>
 
       </div>
