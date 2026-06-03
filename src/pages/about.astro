@@ -1,0 +1,116 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = { title: 'About' };
+---
+
+<Layout metadata={metadata}>
+
+  <Hero tagline="Who is this for?">
+    <Fragment slot="title">
+      A friend who figured<br /><span class="text-accent">something out</span> — and wants to tell you about it.
+    </Fragment>
+    <Fragment slot="subtitle">
+      AI Hustle Starter Pack was built for the person who keeps seeing AI content online but has no idea where to actually start. This is where you start.
+    </Fragment>
+  </Hero>
+
+  <!-- Who Hokulani is -->
+  <section class="py-16" style="background: #faf7f2;">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest mb-3" style="color: #5a2fa0;">The creator</p>
+      <h2 class="text-3xl font-black mb-6" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">Hi, I'm Hokulani.</h2>
+      <p class="text-lg mb-4" style="color: #1a0a2e;">
+        I'm not a tech person. I'm someone who got obsessed with AI tools and started using them to make money on the side — and then figured out how to do it with free tools only.
+      </p>
+      <p class="text-lg mb-4" style="color: #1a0a2e;">
+        The AI Hustle Starter Pack is what I wish I'd had when I started. Not a 30-hour course. Not a $300 software stack. Ten short lessons, a workbook you can write in, and a 30-day plan to your first $500.
+      </p>
+      <p class="text-lg" style="color: #1a0a2e;">
+        If you can follow a recipe, you can follow this.
+      </p>
+    </div>
+  </section>
+
+  <!-- Who the pack is for -->
+  <section class="py-16" style="background: #ede0f9;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest mb-2" style="color: #5a2fa0;">Is this you?</p>
+      <h2 class="text-3xl md:text-4xl font-black mb-10" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">
+        Built for people who are done watching and ready to build.
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-black text-sm mt-0.5" style="background: #f5a623; color: #2d0f5e;">✓</span>
+          <div>
+            <p class="font-bold mb-1" style="color: #2d0f5e;">You're 18–35 and TikTok is your primary source of everything</p>
+            <p class="text-sm" style="color: #1a0a2e; opacity: 0.7;">This was designed for the way you already consume content. Short, focused, no 2-hour lectures.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-black text-sm mt-0.5" style="background: #f5a623; color: #2d0f5e;">✓</span>
+          <div>
+            <p class="font-bold mb-1" style="color: #2d0f5e;">You want to make money online without a big investment</p>
+            <p class="text-sm" style="color: #1a0a2e; opacity: 0.7;">Not "eventually." Not "someday." You want to take an actual step this week and see if it goes anywhere.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-black text-sm mt-0.5" style="background: #f5a623; color: #2d0f5e;">✓</span>
+          <div>
+            <p class="font-bold mb-1" style="color: #2d0f5e;">You have zero startup capital</p>
+            <p class="text-sm" style="color: #1a0a2e; opacity: 0.7;">Every tool in this pack has a free tier. You don't spend a dollar until you're already earning — and even then it's optional.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-black text-sm mt-0.5" style="background: #f5a623; color: #2d0f5e;">✓</span>
+          <div>
+            <p class="font-bold mb-1" style="color: #2d0f5e;">You're skeptical of the hype</p>
+            <p class="text-sm" style="color: #1a0a2e; opacity: 0.7;">Good. This isn't "AI will make you rich overnight." It's five real models, clear steps, and honest expectations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free tools list -->
+  <Features
+    tagline="The free stack"
+    title="What &quot;free tools only&quot; actually means"
+    subtitle="These are the exact tools you use in the lessons. All free. All no-credit-card to start."
+    items={[
+      {
+        title: 'ChatGPT (free tier)',
+        description: "Writing, outlining, research, copy — GPT-3.5 is enough to start making money. You don't need Plus.",
+        icon: 'tabler:message-chatbot',
+      },
+      {
+        title: 'Canva (free tier)',
+        description: 'Design your product, format your workbook, create your portfolio. Free tier covers everything in this pack.',
+        icon: 'tabler:palette',
+      },
+      {
+        title: 'Gumroad (free)',
+        description: 'Sell digital products instantly. Gumroad is free to start — they take a small percentage per sale. No monthly fee.',
+        icon: 'tabler:shopping-bag',
+      },
+      {
+        title: 'Fiverr (free)',
+        description: 'List your AI-powered service for free. Fiverr takes a cut when you make a sale — zero upfront cost.',
+        icon: 'tabler:briefcase',
+      },
+    ]}
+  />
+
+  <CallToAction
+    actions={[
+      { variant: 'primary', text: 'Get PRO — $36/mo', href: '/#buy' },
+    ]}
+  >
+    <Fragment slot="title">Ready to start?</Fragment>
+    <Fragment slot="subtitle">$36/mo. Workbook shipped. All 10 lessons + monthly newsletter.</Fragment>
+  </CallToAction>
+
+</Layout>

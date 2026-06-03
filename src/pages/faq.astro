@@ -1,0 +1,80 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = { title: 'FAQ' };
+---
+
+<Layout metadata={metadata}>
+
+  <section class="pt-16 pb-4" style="background: #faf7f2;">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest mb-2" style="color: #5a2fa0;">Got questions?</p>
+      <h1 class="text-4xl md:text-5xl font-black mb-4" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">
+        Frequently asked questions
+      </h1>
+      <p class="text-lg" style="color: rgb(26 10 46 / 70%);">
+        Everything you need to know before you buy. Can't find your answer? <a href="/support" class="underline" style="color: #5a2fa0;">Contact us →</a>
+      </p>
+    </div>
+  </section>
+
+  <FAQs
+    classes={{ container: 'max-w-4xl' }}
+    items={[
+      {
+        title: 'What exactly do I get when I buy?',
+        description: 'Two things: (1) A printed workbook shipped to your address — physical, write-in-it, yours to keep. (2) Digital access to 10 video lessons on this site. Your welcome email contains the access link. No apps to download, no accounts to create beyond what you already have.',
+      },
+      {
+        title: 'When does the physical workbook arrive?',
+        description: 'Orders ship within 1–3 business days. Delivery time depends on your location and shipping carrier — typically 5–10 business days for US addresses. You\'ll get a tracking notification when it ships.',
+      },
+      {
+        title: 'How do I access the video lessons?',
+        description: 'After purchase, you\'ll receive a welcome email from our system (GoHighLevel). That email contains a direct link to your lesson hub at aihustlestarter.com/lessons. Bookmark it — that\'s your access point. There\'s no login required.',
+      },
+      {
+        title: 'Do I need any paid tools or subscriptions?',
+        description: 'No. Every tool covered in the lessons has a free tier that\'s sufficient to start making money. ChatGPT, Canva, Gumroad, Fiverr — all free to start. You only upgrade a tool when the free tier becomes a bottleneck — which means you\'re already earning and the upgrade pays for itself.',
+      },
+      {
+        title: 'What if I have no tech skills?',
+        description: 'This was built for exactly that. The whole premise is that AI removes the technical barrier. If you can type a sentence and follow steps, you can do everything in this course. No coding. No design experience. No marketing background required.',
+      },
+      {
+        title: 'What AI side hustles are covered?',
+        description: 'Five models: AI content writing (blogs, captions, emails), AI digital products (ebooks, templates on Gumroad), AI image generation for commercial use (Etsy, Creative Market), AI video content for businesses, and AI-powered research/summary services. Each is covered in Episode 2 with income ranges and effort levels so you can pick the right one for you.',
+      },
+      {
+        title: 'Is this the same as the TikTok series?',
+        description: 'The lessons use the same curriculum as the series, but the video format is fuller — each episode expands on what the TikTok could only tease. Plus you get the printed workbook with action items, the 30-day plan, and structured access to all 10 in one place.',
+      },
+      {
+        title: 'What is the Hustle Newsletter ($9/month)?',
+        description: 'The Hustle Newsletter is the monthly subscription for ongoing content. 1 new lesson every month, tool reviews, and strategy updates as the AI landscape changes. It\'s separate from the Starter Pack — the Pack is a one-time purchase. The newsletter is for people who want to keep learning after finishing the pack.',
+      },
+      {
+        title: 'How do I get help if something doesn\'t work?',
+        description: 'Email us via the Support page or reply to your welcome email. For lesson access issues — check your welcome email first (look for a sender from GoHighLevel or aihustlestarter.com), then contact us if you can\'t find it.',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0" style="background: #faf7f2;"></div>
+    </Fragment>
+  </FAQs>
+
+  <CallToAction
+    actions={[
+      { variant: 'primary', text: 'Get the Starter Pack — $27', href: '/#buy' },
+    ]}
+  >
+    <Fragment slot="title">Still have questions?</Fragment>
+    <Fragment slot="subtitle">
+      <a href="/support" class="underline">Contact us</a> and we'll get back to you within 24 hours.
+    </Fragment>
+  </CallToAction>
+
+</Layout>

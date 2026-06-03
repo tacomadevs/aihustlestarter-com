@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 36" width="180" height="36" role="img" aria-label="AI Hustle">
+  <!--
+    AI HUSTLE — Compact Wordmark
+    Use: nav bar, footer, small-context placements
+    Font: Space Grotesk 900
+    NOTE: Text must be outlined to paths before final production use.
+  -->
+  <text
+    x="0"
+    y="28"
+    font-family="'Space Grotesk', 'Arial Black', Arial, sans-serif"
+    font-weight="900"
+    font-size="28"
+    fill="#2d0f5e"
+    letter-spacing="1.5">AI HUSTLE</text>
+</svg>

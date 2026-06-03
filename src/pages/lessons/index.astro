@@ -1,0 +1,73 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Your Lessons',
+  robots: { index: false, follow: false },
+};
+
+const episodes = [
+  { slug: 'ep-01', number: '01', title: 'Why AI Side Hustles Are Different', hook: 'Most side hustles take months to start making money. AI ones don\'t.' },
+  { slug: 'ep-02', number: '02', title: 'The 5 AI Side Hustles Making Real Money Right Now', hook: 'These 5 AI side hustles are making people $500–$5K a month. Pick one.' },
+  { slug: 'ep-03', number: '03', title: 'Pick Your Hustle — The Decision Framework', hook: 'The wrong side hustle will waste 6 months. Here\'s how to pick the right one in 10 minutes.' },
+  { slug: 'ep-04', number: '04', title: 'Set Up Your AI Toolkit (Free)', hook: 'You don\'t need to spend a dollar to start an AI side hustle. Here\'s your free stack.' },
+  { slug: 'ep-05', number: '05', title: 'Your First Product or Service in 60 Minutes', hook: 'I built a sellable product in 60 minutes using only free AI tools. Here\'s exactly how.' },
+  { slug: 'ep-06', number: '06', title: 'Find Your First Customer', hook: 'No followers? No problem. Here\'s where your first customer already is.' },
+  { slug: 'ep-07', number: '07', title: 'Price It Right — AI Side Hustle Pricing Strategy', hook: 'Most people price their AI side hustle too low. Here\'s the fix.' },
+  { slug: 'ep-08', number: '08', title: 'Scale Without Burning Out', hook: 'This is how you go from 1 client to 10 without working 10x harder.' },
+  { slug: 'ep-09', number: '09', title: 'The First $500 — Your 30-Day Action Plan', hook: 'Here\'s the exact 30-day plan to your first $500 from an AI side hustle.' },
+  { slug: 'ep-10', number: '10', title: 'What Comes After $500', hook: 'You made your first $500. Here\'s what to do next so it doesn\'t stop there.' },
+];
+---
+
+<Layout metadata={metadata}>
+
+  <section class="py-16" style="background: #faf7f2;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <!-- Welcome header -->
+      <div class="mb-12">
+        <h1 class="text-4xl md:text-5xl font-black mb-3" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">
+          Welcome back. Here are your 10 lessons.
+        </h1>
+        <p style="color: rgb(26 10 46 / 70%);">Work through these in order. Each one builds on the last.</p>
+      </div>
+
+      <!-- Episode grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-16">
+        {episodes.map(({ slug, number, title, hook }) => (
+          <a
+            href={`/lessons/${slug}`}
+            class="flex items-start gap-5 p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow group"
+          >
+            <span
+              class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-black text-lg"
+              style="background: #ede0f9; color: #2d0f5e; font-family: 'Space Grotesk', sans-serif;"
+            >
+              {number}
+            </span>
+            <div>
+              <p class="font-bold mb-1 group-hover:underline" style="color: #2d0f5e; font-family: 'Space Grotesk', sans-serif;">{title}</p>
+              <p class="text-sm italic" style="color: rgb(26 10 46 / 60%);">"{hook}"</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Upsell -->
+      <div class="rounded-2xl p-8 text-center" style="background: #2d0f5e;">
+        <p class="font-bold text-lg text-white mb-2" style="font-family: 'Space Grotesk', sans-serif;">Enjoying this?</p>
+        <p class="mb-4" style="color: rgb(250 247 242 / 70%);">Get 1 new lesson every month with the Hustle Newsletter.</p>
+        <a
+          href="/upgrade"
+          class="inline-flex items-center gap-2 font-bold py-3 px-8 rounded-full transition-colors"
+          style="background: #f5a623; color: #2d0f5e;"
+        >
+          Subscribe — $9/month →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>

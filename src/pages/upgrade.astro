@@ -1,0 +1,172 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = { title: 'Upgrade — Go Pro or VIP' };
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Header -->
+  <section class="py-20" style="background: #2d0f5e;">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-sm font-bold uppercase tracking-widest mb-4" style="color: #f5a623;">Level up your AI hustle</p>
+      <h1 class="text-4xl md:text-5xl font-black text-white mb-6" style="font-family: 'Space Grotesk', sans-serif;">
+        Pick your next step.
+      </h1>
+      <p class="text-lg" style="color: rgb(250 247 242 / 75%);">
+        The Starter Pack gets you to $500. These tiers get you past it.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing tiers -->
+  <section class="py-20" style="background: #faf7f2;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-3 gap-8 items-start">
+
+        <!-- Newsletter -->
+        <div id="free" class="rounded-2xl p-8 border-2" style="background: white; border-color: #ede0f9;">
+          <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: #5a2fa0;">Monthly</p>
+          <h2 class="text-2xl font-black mb-1" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">Hustle Newsletter</h2>
+          <p class="text-4xl font-black mb-2" style="color: #2d0f5e;">$9<span class="text-lg font-normal" style="color: rgb(26 10 46 / 50%);">/mo</span></p>
+          <p class="text-sm mb-6" style="color: rgb(26 10 46 / 60%);">Cancel any time.</p>
+          <ul class="space-y-3 mb-8">
+            {[
+              '1 new lesson every month',
+              'New tools — free vs paid breakdowns',
+              'What\'s working right now',
+              'Real income case studies',
+              'Early access to new drops',
+            ].map(item => (
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-black mt-0.5" style="background: #ede0f9; color: #5a2fa0;">✓</span>
+                <span class="text-sm" style="color: #1a0a2e;">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <!-- GHL Newsletter $9/mo checkout embed — see ghl-build-brief.md item 11 -->
+          <div class="rounded-xl p-4 text-center" style="background: #ede0f9; border: 1px dashed #5a2fa0;">
+            <p class="text-sm font-medium mb-1" style="color: #5a2fa0;">Newsletter signup form</p>
+            <p class="text-xs" style="color: rgb(26 10 46 / 50%);">GHL embed goes here</p>
+          </div>
+        </div>
+
+        <!-- Starter Bundle -->
+        <div class="rounded-2xl p-8 border-2 relative" style="background: #2d0f5e; border-color: #5a2fa0;">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-black uppercase tracking-widest px-4 py-1 rounded-full" style="background: #f5a623; color: #2d0f5e;">Most popular</span>
+          <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: #f5a623;">Monthly</p>
+          <h2 class="text-2xl font-black mb-1 text-white" style="font-family: 'Space Grotesk', sans-serif;">PRO</h2>
+          <p class="text-4xl font-black mb-2 text-white">$36<span class="text-lg font-normal" style="color: rgb(250 247 242 / 50%);">/mo</span></p>
+          <p class="text-sm mb-6" style="color: rgb(250 247 242 / 60%);">Workbook shipped + all 10 lessons + newsletter. Cancel any time.</p>
+          <ul class="space-y-3 mb-8">
+            {[
+              'Physical workbook shipped to your door',
+              'All 10 AI side hustle lessons unlocked',
+              'Step-by-step 30-day action plan',
+              'Monthly newsletter included',
+              '1 new lesson every month',
+            ].map(item => (
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-black mt-0.5" style="background: #f5a623; color: #2d0f5e;">✓</span>
+                <span class="text-sm" style="color: rgb(250 247 242 / 85%);">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <!-- GHL PRO $36/mo checkout embed — see ghl-build-brief.md item 11 -->
+          <div class="rounded-xl p-4 text-center" style="background: rgb(255 255 255 / 10%); border: 1px dashed rgb(245 166 35 / 60%);">
+            <p class="text-sm font-medium mb-1 text-white">PRO checkout</p>
+            <p class="text-xs" style="color: rgb(250 247 242 / 50%);">GHL embed goes here</p>
+          </div>
+        </div>
+
+        <!-- VIP -->
+        <div class="rounded-2xl p-8 border-2" style="background: white; border-color: #f5a623;">
+          <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: #f5a623;">Monthly membership</p>
+          <h2 class="text-2xl font-black mb-1" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">VIP</h2>
+          <p class="text-4xl font-black mb-2" style="color: #2d0f5e;">$96<span class="text-lg font-normal" style="color: rgb(26 10 46 / 50%);">/mo</span></p>
+          <p class="text-sm mb-6" style="color: rgb(26 10 46 / 60%);">Cancel anytime. Includes everything in PRO.</p>
+          <ul class="space-y-3 mb-8">
+            {[
+              'Everything in PRO',
+              'Your own GoHighLevel sub-account',
+              'Website building curriculum',
+              'GHL playbooks for specific monetization',
+              'Private Discord community access',
+              'Priority support',
+            ].map(item => (
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-black mt-0.5" style="background: #f5a623; color: #2d0f5e;">✓</span>
+                <span class="text-sm" style="color: #1a0a2e;">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <!-- GHL VIP $96/mo checkout embed — see ghl-build-brief.md item 11 -->
+          <div class="rounded-xl p-4 text-center" style="background: #fef3d8; border: 1px dashed #f5a623;">
+            <p class="text-sm font-medium mb-1" style="color: #5a2fa0;">VIP checkout</p>
+            <p class="text-xs" style="color: rgb(26 10 46 / 50%);">GHL embed goes here</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison table -->
+  <section class="py-16" style="background: #ede0f9;">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black mb-8 text-center" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">What's included at each tier</h2>
+      <div class="rounded-2xl overflow-hidden shadow-sm">
+        <table class="w-full text-sm">
+          <thead>
+            <tr style="background: #2d0f5e; color: white;">
+              <th class="text-left p-4 font-bold">Feature</th>
+              <th class="text-center p-4 font-bold">$9/mo</th>
+              <th class="text-center p-4 font-bold" style="color: #f5a623;">PRO $36/mo</th>
+              <th class="text-center p-4 font-bold" style="color: #f5a623;">VIP $96/mo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Monthly newsletter', true, true, true],
+              ['1 new lesson/month', true, true, true],
+              ['Tool breakdowns', true, true, true],
+              ['Physical workbook', false, true, true],
+              ['All 10 lessons (lifetime)', false, true, true],
+              ['30-day action plan', false, true, true],
+              ['GHL sub-account', false, false, true],
+              ['Website building curriculum', false, false, true],
+              ['Discord community', false, false, true],
+            ].map(([feature, free, pro, vip]) => (
+              <tr style="border-bottom: 1px solid #ede0f9; background: white;">
+                <td class="p-4" style="color: #1a0a2e;">{feature}</td>
+                <td class="p-4 text-center" style="color: free ? '#5a2fa0' : 'rgb(26 10 46 / 30%);'">{free ? '✓' : '–'}</td>
+                <td class="p-4 text-center" style="color: pro ? '#5a2fa0' : 'rgb(26 10 46 / 30%);'">{pro ? '✓' : '–'}</td>
+                <td class="p-4 text-center" style="color: vip ? '#f5a623' : 'rgb(26 10 46 / 30%);'">{vip ? '✓' : '–'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Not ready yet -->
+  <section class="py-16" style="background: #faf7f2;">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-black mb-3" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">
+        Not ready to upgrade yet?
+      </h2>
+      <p class="mb-6" style="color: rgb(26 10 46 / 70%);">
+        Start with the newsletter at $9/mo. No pressure — you can grab the Bundle or go VIP whenever it makes sense.
+      </p>
+      <a
+        href="#free"
+        class="inline-flex items-center gap-2 font-bold py-3 px-8 rounded-full transition-colors"
+        style="background: #5a2fa0; color: white;"
+      >
+        Join the Hustle Newsletter →
+      </a>
+    </div>
+  </section>
+
+</Layout>

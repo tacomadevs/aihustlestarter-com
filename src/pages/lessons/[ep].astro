@@ -1,0 +1,307 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+export function getStaticPaths() {
+  const episodeData = [
+    {
+      slug: 'ep-01', number: '01',
+      title: 'Why AI Side Hustles Are Different',
+      hook: "Most side hustles take months to start making money. AI ones don't.",
+      youtubeId: '-yAI64b9myE',
+      takeaways: [
+        'Traditional side hustles take weeks to build and months to first sale. AI compresses that to hours and days.',
+        "AI handles production — your value shifts from how fast you work to how well you direct AI.",
+        'The unfair advantage is real and available to anyone right now.',
+      ],
+      action: "Write down one thing you've always wanted to sell or offer — a skill, a service, a product idea. Don't overthink it. You'll use it in Episode 3.",
+      nextSlug: 'ep-02',
+    },
+    {
+      slug: 'ep-02', number: '02',
+      title: 'The 5 AI Side Hustles Making Real Money Right Now',
+      hook: "These 5 AI side hustles are making people $500–$5K a month. Pick one.",
+      youtubeId: '7sNiBkchHfc',
+      takeaways: [
+        'AI content writing (blogs, captions, email sequences) — $25–$150/piece on freelance platforms.',
+        'AI digital products (ebooks, templates, guides) — create once, sell forever on Gumroad or Etsy.',
+        'AI image generation for commercial use, AI video for businesses, and AI research services round out the top 5.',
+      ],
+      action: 'Screenshot this episode. These are your five options. Circle the one that matches something you wrote down in Episode 1.',
+      nextSlug: 'ep-03',
+    },
+    {
+      slug: 'ep-03', number: '03',
+      title: 'Pick Your Hustle — The Decision Framework',
+      hook: "The wrong side hustle will waste 6 months. Here's how to pick the right one in 10 minutes.",
+      youtubeId: 'fRbU_281R5Y',
+      takeaways: [
+        "Time test: under 5 hrs/week → digital products. 5–15 hrs → content writing or research. 15+ hrs → video or full service.",
+        "Speed test: need money in 30 days → freelance services. Building long-term → digital products.",
+        "No existing skills needed for any of the five — but existing skills accelerate whichever you choose.",
+      ],
+      action: "Answer 3 questions: How many hours/week can I commit? Do I need income within 30 days? Do I have any skill that overlaps with one of the five? Your answers pick your hustle.",
+      nextSlug: 'ep-04',
+    },
+    {
+      slug: 'ep-04', number: '04',
+      title: 'Set Up Your AI Toolkit (Free)',
+      hook: "You don't need to spend a dollar to start an AI side hustle. Here's your free stack.",
+      youtubeId: 'aYt4fXGKK7o',
+      takeaways: [
+        "Writing and thinking: ChatGPT free (GPT-3.5) or Claude free — drafts, outlines, research, copy.",
+        "Images: Adobe Firefly free, Canva AI free, Microsoft Designer free — all commercial-use.",
+        "Selling: Gumroad free (digital products) and Fiverr free (services). Both take a % per sale with zero upfront.",
+      ],
+      action: "Set up accounts on all four today: ChatGPT, Canva, Gumroad or Fiverr, CapCut. All free. Bookmark them. Your toolkit is ready.",
+      nextSlug: 'ep-05',
+    },
+    {
+      slug: 'ep-05', number: '05',
+      title: 'Your First Product or Service in 60 Minutes',
+      hook: "I built a sellable product in 60 minutes using only free AI tools. Here's exactly how.",
+      youtubeId: 'vHeQ48p_WBU',
+      takeaways: [
+        "Digital product path (60 min): ChatGPT generates outline → fills sections → Canva formats as PDF → upload to Gumroad → live.",
+        "Service path (60 min): write your offering with AI → create a portfolio sample → post on Fiverr or reach out to 5 businesses.",
+        "The quality bar for a first product: solve one specific problem, for one specific person, completely.",
+      ],
+      action: "Block 60 minutes this week. Build your first product or set up your first service. Don't polish it — publish it.",
+      nextSlug: 'ep-06',
+    },
+    {
+      slug: 'ep-06', number: '06',
+      title: 'Find Your First Customer',
+      hook: "No followers? No problem. Here's where your first customer already is.",
+      youtubeId: 'S1PWxZbfqXg',
+      takeaways: [
+        "Fiverr and Etsy have built-in search traffic. Buyers are already there looking — you don't need to bring them.",
+        "Reddit and Facebook Groups: find communities where your ICP asks questions your service answers. Reply with value first.",
+        "Cold outreach: find 10 small businesses on Instagram or Google Maps. Send a personalized message with a free sample.",
+      ],
+      action: "Today: list your product on Gumroad or Etsy, OR write 5 cold outreach messages using AI and send them. One action, today.",
+      nextSlug: 'ep-07',
+    },
+    {
+      slug: 'ep-07', number: '07',
+      title: 'Price It Right — AI Side Hustle Pricing Strategy',
+      hook: "Most people price their AI side hustle too low. Here's the fix.",
+      youtubeId: '8KPn50HozJM',
+      takeaways: [
+        "Don't price based on how long it takes you — price based on the value it delivers to the buyer.",
+        "Starting price floors: writing ($50/piece min), digital products ($17–$47), research reports ($97+), video ($150+).",
+        "List at your target price. If the first 10 people buy without negotiating, raise it.",
+      ],
+      action: "Look at your current or planned price. Ask: what is the buyer's alternative to paying me? If the alternative costs more, raise your price before you launch.",
+      nextSlug: 'ep-08',
+    },
+    {
+      slug: 'ep-08', number: '08',
+      title: 'Scale Without Burning Out',
+      hook: "This is how you go from 1 client to 10 without working 10x harder.",
+      youtubeId: 'z0Yc38YWuhI',
+      takeaways: [
+        "Templatize everything: every deliverable becomes a reusable AI prompt template. Next client gets the same quality in half the time.",
+        "Batch production: produce multiple deliverables in one AI session instead of one at a time.",
+        "Most solo AI side hustlers can handle 10 active clients with 10–15 hours/week if delivery is fully systemized.",
+      ],
+      action: "After your first client, document exactly what you did to deliver. Turn each step into a reusable AI prompt. That's your scaling system.",
+      nextSlug: 'ep-09',
+    },
+    {
+      slug: 'ep-09', number: '09',
+      title: 'The First $500 — Your 30-Day Action Plan',
+      hook: "Here's the exact 30-day plan to your first $500 from an AI side hustle.",
+      youtubeId: 'Lp9VNWNFSiA',
+      takeaways: [
+        "Week 1: pick hustle + build first product or service + set up on one platform.",
+        "Week 2: 10 outreach messages/day OR optimize your listing for search + post 3 TikToks showing your process.",
+        "The math: 10 clients × $50 = $500. Or 5 × $100. Or 1 digital product at $47 × 11 sales. Pick your path.",
+      ],
+      action: "Write your 30-day plan today. Use AI: prompt with your hustle type and ask for a week-by-week plan to your first $500.",
+      nextSlug: 'ep-10',
+    },
+    {
+      slug: 'ep-10', number: '10',
+      title: 'What Comes After $500',
+      hook: "You made your first $500. Here's what to do next so it doesn't stop there.",
+      youtubeId: 'M22UhUmqQSU',
+      takeaways: [
+        "Diagnose what drove the $500: which hustle, which channel, which client type. Do more of that exact thing.",
+        "Reinvest first: one paid AI tool that removes your biggest bottleneck (ChatGPT Plus at $20/mo is usually the move).",
+        "Build the asset: capture testimonials, build a simple portfolio, raise your price — your next $500 should take half the time.",
+      ],
+      action: "Write down: what specifically made the first $500? What would happen if you did 2x more of that? Then do 2x more of that.",
+      nextSlug: null,
+    },
+  ];
+
+  return episodeData.map(ep => ({
+    params: { ep: ep.slug },
+    props: { episode: ep },
+  }));
+}
+
+const { episode } = Astro.props;
+
+const metadata = {
+  title: `Ep ${episode.number}: ${episode.title}`,
+  robots: { index: false, follow: false },
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Newsletter bar -->
+  <div class="nl-bar py-3 px-4 text-center text-sm">
+    <a href="/upgrade" class="nl-link">
+      ✦ Get 1 new lesson every month — Join the Hustle Newsletter $9/mo ✦
+    </a>
+  </div>
+
+  <section class="py-16" style="background: #faf7f2;">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+      <!-- Episode header -->
+      <div class="mb-8">
+        <a href="/lessons" class="text-sm font-medium hover:underline mb-4 inline-block" style="color: #5a2fa0;">
+          ← Back to all lessons
+        </a>
+        <p class="text-sm font-bold uppercase tracking-widest mb-2" style="color: #f5a623;">Episode {episode.number}</p>
+        <h1 class="text-3xl md:text-4xl font-black mb-4" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">
+          {episode.title}
+        </h1>
+        <p class="text-lg italic" style="color: #1a0a2e; opacity: 0.7;">"{episode.hook}"</p>
+      </div>
+
+      <!-- Video embed -->
+      <div class="mb-10 rounded-2xl overflow-hidden" style="background: #ede0f9; aspect-ratio: 16/9;">
+        {episode.youtubeId ? (
+          <iframe
+            width="100%"
+            height="100%"
+            src={`https://www.youtube.com/embed/${episode.youtubeId}`}
+            title={episode.title}
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          />
+        ) : (
+          <div class="w-full h-full flex items-center justify-center" style="min-height: 300px;">
+            <p class="text-center font-medium" style="color: #5a2fa0;">
+              Video coming soon — check back shortly.
+            </p>
+          </div>
+        )}
+      </div>
+
+      <!-- Key takeaways -->
+      <div class="mb-10">
+        <h2 class="text-xl font-black mb-4" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">3 key takeaways</h2>
+        <ol class="space-y-3">
+          {episode.takeaways.map((point: string, i: number) => (
+            <li class="flex items-start gap-4">
+              <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center font-black text-sm" style="background: #ede0f9; color: #2d0f5e;">
+                {i + 1}
+              </span>
+              <p style="color: #1a0a2e;">{point}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <!-- Action item -->
+      <div class="p-6 rounded-2xl mb-10" style="background: #fef3d8; border-left: 4px solid #f5a623;">
+        <p class="text-sm font-bold uppercase tracking-widest mb-2" style="color: #f5a623;">Your action item</p>
+        <p style="color: #1a0a2e;">{episode.action}</p>
+      </div>
+
+      <!-- Navigation -->
+      <div class="flex items-center justify-between">
+        <a href="/lessons" class="text-sm font-medium hover:underline" style="color: #5a2fa0;">
+          ← All lessons
+        </a>
+        {episode.nextSlug ? (
+          <a
+            href={`/lessons/${episode.nextSlug}`}
+            class="inline-flex items-center gap-2 font-bold py-3 px-6 rounded-full transition-colors"
+            style="background: #5a2fa0; color: white;"
+          >
+            Next episode →
+          </a>
+        ) : (
+          <a
+            href="/upgrade"
+            class="inline-flex items-center gap-2 font-bold py-3 px-6 rounded-full transition-colors"
+            style="background: #f5a623; color: #2d0f5e;"
+          >
+            You're done! Join the Hustle Newsletter →
+          </a>
+        )}
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  @keyframes goldGlow {
+    0%, 100% {
+      text-shadow:
+        0 0 8px rgba(245,166,35,.7),
+        0 0 20px rgba(245,166,35,.4),
+        0 0 40px rgba(245,166,35,.2);
+      box-shadow:
+        0 0 18px rgba(245,166,35,.35),
+        inset 0 0 30px rgba(245,166,35,.08);
+    }
+    50% {
+      text-shadow:
+        0 0 14px rgba(255,200,60,1),
+        0 0 35px rgba(245,166,35,.7),
+        0 0 70px rgba(245,166,35,.35);
+      box-shadow:
+        0 0 36px rgba(245,166,35,.6),
+        inset 0 0 60px rgba(245,166,35,.15);
+    }
+  }
+
+  @keyframes shimmerSweep {
+    0%   { transform: translateX(-100%) skewX(-12deg); }
+    100% { transform: translateX(300%) skewX(-12deg); }
+  }
+
+  .nl-bar {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #1a0a2e 0%, #2d0f5e 40%, #1a0a2e 100%);
+    border-bottom: 1px solid rgba(245,166,35,.3);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .nl-bar { animation: goldGlow 3s ease-in-out infinite; }
+  }
+
+  .nl-bar::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 40%;
+    background: linear-gradient(105deg, transparent 30%, rgba(255,200,60,.18) 50%, transparent 70%);
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .nl-bar::before { animation: shimmerSweep 3.5s ease-in-out 1s infinite; }
+  }
+
+  .nl-link {
+    color: #f5a623;
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-decoration: none;
+    transition: color 200ms;
+  }
+  .nl-link:hover { color: #ffd966; }
+</style>

@@ -1,0 +1,69 @@
+site:
+  name: AI Hustle Starter Pack
+  site: 'https://aihustlestarter.com'
+  base: '/'
+  trailingSlash: false
+
+metadata:
+  title:
+    default: AI Hustle Starter Pack
+    template: '%s — AI Hustle Starter Pack'
+  description: 'Your AI side hustle starts here. 10 lessons. Real income. Free tools. Let''s go.'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: AI Hustle Starter Pack
+    images:
+      - url: '~/assets/images/default.png'
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    handle: '@aihustlepack'
+    site: '@aihustlepack'
+    cardType: summary_large_image
+
+i18n:
+  language: en
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: false
+    postsPerPage: 6
+
+    post:
+      isEnabled: false
+      permalink: '/%slug%'
+      robots:
+        index: false
+
+    list:
+      isEnabled: false
+      pathname: 'blog'
+      robots:
+        index: false
+
+    category:
+      isEnabled: false
+      pathname: 'category'
+      robots:
+        index: false
+
+    tag:
+      isEnabled: false
+      pathname: 'tag'
+      robots:
+        index: false
+
+    isRelatedPostsEnabled: false
+    relatedPostsCount: 4
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null
+
+ui:
+  theme: 'light:only'

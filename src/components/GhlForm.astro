@@ -1,0 +1,37 @@
+---
+/**
+ * GhlForm.astro
+ * GHL inline form embed — uses GHL's official form_embed.js loader.
+ *
+ * Usage:
+ *   import GhlForm from '~/components/GhlForm.astro';
+ *   <GhlForm formId="rP7ge4Iw0ivjwsJaA7hA" formName="Newsletter Signup" height={433} />
+ */
+
+interface Props {
+  formId: string;
+  formName?: string;
+  height?: number;
+}
+
+const { formId, formName = 'Sign Up', height = 433 } = Astro.props;
+---
+
+<iframe
+  src={`https://api.leadconnectorhq.com/widget/form/${formId}`}
+  style={`width:100%;height:${height}px;border:none;border-radius:12px;`}
+  id={`inline-${formId}`}
+  data-layout='{"id":"INLINE"}'
+  data-trigger-type="alwaysShow"
+  data-trigger-value=""
+  data-activation-type="alwaysActivated"
+  data-activation-value=""
+  data-deactivation-type="neverDeactivate"
+  data-deactivation-value=""
+  data-form-name={formName}
+  data-height={height}
+  data-layout-iframe-id={`inline-${formId}`}
+  data-form-id={formId}
+  title={formName}
+></iframe>
+<script is:inline src="https://link.msgsndr.com/js/form_embed.js"></script>

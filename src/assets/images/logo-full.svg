@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" width="320" height="90" role="img" aria-label="AI Hustle Starter Pack">
+  <!--
+    AI HUSTLE STARTER PACK — Full Lockup
+    Treatment: stacked with badge overlap (Option 3, Layout C)
+    Font: Space Grotesk 900 (heading) + 700 (badge)
+    NOTE: Text must be outlined to paths before final production use.
+    As-is, requires Space Grotesk loaded on the page to render correctly.
+  -->
+
+  <!-- Main wordmark -->
+  <text
+    x="8"
+    y="52"
+    font-family="'Space Grotesk', 'Arial Black', Arial, sans-serif"
+    font-weight="900"
+    font-size="48"
+    fill="#2d0f5e"
+    letter-spacing="2">AI HUSTLE</text>
+
+  <!-- STARTER PACK badge — overlaps lower-right of wordmark -->
+  <rect x="118" y="56" width="144" height="29" rx="14.5" fill="#f5a623"/>
+  <text
+    x="190"
+    y="76"
+    font-family="'Space Grotesk', 'Arial Black', Arial, sans-serif"
+    font-weight="700"
+    font-size="12"
+    fill="#2d0f5e"
+    text-anchor="middle"
+    letter-spacing="2">STARTER PACK</text>
+</svg>

@@ -1,0 +1,600 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Features from '~/components/widgets/Features.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import GhlForm from '~/components/GhlForm.astro';
+
+const metadata = {
+  title: 'AI Hustle Starter Pack — Your AI side hustle starts here',
+  ignoreTitleTemplate: true,
+};
+
+const BUY_URL = '#buy';
+---
+
+<Layout metadata={metadata}>
+
+  <!-- ======================================================
+       CUSTOM HERO — full viewport, dark gradient, split layout
+       ====================================================== -->
+  <section
+    id="hero-section"
+    class="relative overflow-hidden not-prose"
+    style="min-height:100vh; margin-top:-76px; background:linear-gradient(135deg,#0f0a1e 0%,#1a0a2e 50%,#0a0a14 100%);"
+  >
+
+    <!-- Floating ambient background elements -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      <!-- Large blurred orbs -->
+      <div class="amb-orb" style="width:120px;height:120px;background:rgba(124,58,237,.12);top:15%;left:8%;--dur:14s;"></div>
+      <div class="amb-orb" style="width:80px;height:80px;background:rgba(245,158,11,.10);top:60%;left:5%;--dur:11s;--del:-3s;"></div>
+      <div class="amb-orb" style="width:100px;height:100px;background:rgba(124,58,237,.08);top:25%;right:12%;--dur:17s;--del:-6s;"></div>
+      <div class="amb-orb" style="width:70px;height:70px;background:rgba(245,158,11,.12);top:70%;right:8%;--dur:13s;--del:-2s;"></div>
+      <div class="amb-orb" style="width:90px;height:90px;background:rgba(124,58,237,.10);top:45%;left:45%;--dur:19s;--del:-8s;"></div>
+      <!-- Small circles -->
+      <div class="amb-dot" style="width:10px;height:10px;background:rgba(124,58,237,.30);top:20%;left:20%;--dur:9s;"></div>
+      <div class="amb-dot" style="width:14px;height:14px;background:rgba(245,158,11,.25);top:75%;left:30%;--dur:12s;--del:-4s;"></div>
+      <div class="amb-dot" style="width:8px;height:8px;background:rgba(124,58,237,.35);top:40%;right:20%;--dur:10s;--del:-7s;"></div>
+      <!-- Symbols -->
+      <div class="amb-sym" style="top:30%;left:62%;--dur:15s;">✦</div>
+      <div class="amb-sym" style="top:55%;left:25%;--dur:18s;--del:-5s;">+</div>
+      <div class="amb-sym" style="top:80%;right:25%;--dur:12s;--del:-2s;">✦</div>
+    </div>
+
+    <!-- Content grid wrapper -->
+    <div
+      class="relative max-w-7xl mx-auto px-4 sm:px-6 flex items-center"
+      style="min-height:100vh;"
+    >
+      <div
+        class="w-full grid grid-cols-1 md:grid-cols-2 items-center gap-12"
+        style="padding-top:100px; padding-bottom:64px;"
+      >
+
+        <!-- ── LEFT: text content ── -->
+        <div>
+
+          <!-- 1. Eyebrow label -->
+          <p
+            class="hero-enter"
+            style="--hero-delay:0ms; color:rgba(250,247,242,.70); font-size:.72rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; margin-bottom:18px;"
+          >
+            For beginners with zero budget
+          </p>
+
+          <!-- 2 & 3. Headline — two lines staggered -->
+          <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:900; line-height:1.08; margin-bottom:20px; font-size:clamp(2.5rem,5vw,4rem);">
+            <span
+              class="hero-enter block"
+              style="--hero-delay:150ms; color:white;"
+            >Your AI side hustle</span>
+            <span
+              id="hero-accent"
+              class="hero-enter block"
+              style="--hero-delay:300ms; color:#f5a623;"
+            >starts here.</span>
+          </h1>
+
+          <!-- 4. Subline -->
+          <p
+            class="hero-enter"
+            style="--hero-delay:400ms; color:rgba(250,247,242,.70); font-size:1.1rem; margin-bottom:22px;"
+          >
+            10 short lessons. Real income strategies. Free tools only. Start today.
+          </p>
+
+          <!-- 7. Stat chips -->
+          <div class="hero-enter stat-chips" style="--hero-delay:450ms;">
+            <div class="stat-chip">⚡ <strong>10</strong>&nbsp;<span class="chip-lbl">Lessons</span></div>
+            <div class="stat-chip">🛠 <strong>Free</strong>&nbsp;<span class="chip-lbl">Tools Only</span></div>
+            <div class="stat-chip">💰 <strong>$500</strong>&nbsp;<span class="chip-lbl">30-Day Goal</span></div>
+          </div>
+
+          <!-- 4. Social proof strip -->
+          <div class="hero-enter hero-proof" style="--hero-delay:510ms;">
+            <span class="proof-stars">★★★★★</span>
+            <span class="proof-text">1,200+ students already building</span>
+            <div class="avatars">
+              <div class="av" style="background:#7c3aed;">AJ</div>
+              <div class="av" style="background:#f59e0b; color:#0a0a14;">KM</div>
+              <div class="av" style="background:#10b981;">TR</div>
+              <div class="av" style="background:#3b82f6;">SL</div>
+              <div class="av" style="background:#ef4444;">DP</div>
+            </div>
+          </div>
+
+          <!-- 6. CTA buttons -->
+          <div class="hero-enter hero-ctas" style="--hero-delay:600ms;">
+            <!-- Primary with pulse ring + shimmer -->
+            <div class="hero-btn-wrap">
+              <a href={BUY_URL} class="hero-btn-primary" id="hero-cta-btn">
+                Get the Starter Bundle — $36/mo
+              </a>
+              <div class="pulse-ring" aria-hidden="true"></div>
+            </div>
+            <!-- Secondary -->
+            <a href="/lessons" class="hero-btn-secondary">
+              Already bought? Access your lessons →
+            </a>
+          </div>
+
+        </div>
+
+        <!-- ── RIGHT: hero video ── -->
+        <div class="hero-enter hero-img-col" style="--hero-delay:200ms;">
+          <video
+            src="/avatar-shot-20260602-14224d19.mp4"
+            autoplay
+            loop
+            muted
+            playsinline
+            class="hero-product-img"
+          ></video>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust strip -->
+  <div style="background: #2d0f5e;">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-center gap-6 md:gap-12 text-sm font-semibold text-center" style="color: #faf7f2;">
+      <span>✓ 10 lessons</span>
+      <span>✓ Free AI tools only</span>
+      <span>✓ Physical workbook shipped</span>
+      <span>✓ Instant digital access</span>
+    </div>
+  </div>
+
+  <!-- What's in the pack -->
+  <Features
+    id="whats-included"
+    tagline="What you get"
+    title="Everything you need to start your AI hustle"
+    subtitle="One purchase. Four things that actually move the needle."
+    items={[
+      {
+        title: 'Printed workbook — shipped to you',
+        description: 'A physical, fill-in-as-you-go workbook delivered to your door. Your offline companion to the course.',
+        icon: 'tabler:book',
+      },
+      {
+        title: '10 video lessons',
+        description: 'Short, focused lessons. Each one builds on the last. No fluff — finish in a weekend if you want.',
+        icon: 'tabler:player-play',
+      },
+      {
+        title: 'Free tool stack',
+        description: 'ChatGPT, Canva, Gumroad — the exact free tools you need. No subscriptions, no credit card required.',
+        icon: 'tabler:tools',
+      },
+      {
+        title: '30-day action plan to first $500',
+        description: 'A week-by-week roadmap with specific tasks — not motivation, actual steps you can follow today.',
+        icon: 'tabler:calendar-check',
+      },
+    ]}
+  />
+
+  <!-- Lesson preview -->
+  <section class="py-16" style="background: #ede0f9;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest mb-2" style="color: #5a2fa0;">Inside the pack</p>
+      <h2 class="text-3xl md:text-4xl font-black mb-3" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">
+        10 lessons. Each one gets you closer to paid.
+      </h2>
+      <p class="mb-10 max-w-2xl" style="color: rgb(26 10 46 / 70%);">Here's a taste of what's inside.</p>
+      <div class="grid md:grid-cols-3 gap-6 mb-10">
+        {[
+          { ep: '01', title: 'Why AI Side Hustles Are Different', hook: 'Most side hustles take months to start making money. AI ones don\'t.' },
+          { ep: '05', title: 'Your First Product or Service in 60 Minutes', hook: 'I built a sellable product in 60 minutes using only free tools. Here\'s exactly how.' },
+          { ep: '09', title: 'The First $500 — Your 30-Day Action Plan', hook: 'Here\'s the exact 30-day plan to your first $500 from an AI side hustle.' },
+        ].map(({ ep, title, hook }) => (
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color: #f5a623;">Episode {ep}</p>
+            <h3 class="text-lg font-bold mb-3" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">{title}</h3>
+            <p class="text-sm italic" style="color: rgb(26 10 46 / 70%);">"{hook}"</p>
+          </div>
+        ))}
+      </div>
+      <a
+        href={BUY_URL}
+        class="inline-flex items-center gap-2 font-bold py-3 px-8 rounded-full transition-colors"
+        style="background: #5a2fa0; color: white;"
+      >
+        Get the Starter Bundle — $36/mo →
+      </a>
+    </div>
+  </section>
+
+  <!-- Who this is for -->
+  <section class="py-16" style="background: #faf7f2;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest mb-2 text-center" style="color: #5a2fa0;">Is this for you?</p>
+      <h2 class="text-3xl md:text-4xl font-black mb-12 text-center" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">
+        Built for people who are done watching and ready to build.
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          { check: "You've heard about AI but don't know where to start — and you're tired of vague advice." },
+          { check: "You want to make money online without a big investment. You need free tools, not a $200/month stack." },
+          { check: "You're done consuming content. You want a plan and you're ready to follow it." },
+        ].map(({ check }) => (
+          <div class="flex items-start gap-4">
+            <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-black text-white text-sm mt-0.5" style="background: #f5a623; color: #2d0f5e;">✓</span>
+            <p class="text-base" style="color: #1a0a2e;">{check}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Price block -->
+  <section id="buy" class="py-20" style="background: #2d0f5e;">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest mb-4" style="color: #f5a623;">Monthly</p>
+      <h2 class="text-4xl md:text-5xl font-black text-white mb-4" style="font-family: 'Space Grotesk', sans-serif;">
+        $36/month. Starter Pack + Newsletter.
+      </h2>
+      <p class="text-lg mb-8" style="color: rgb(250 247 242 / 80%);">
+        Workbook shipped to your door. All 10 lessons unlocked. 1 new lesson every month. Cancel any time.
+      </p>
+      <a
+        href="#"
+        class="inline-flex items-center justify-center font-black text-lg py-4 px-10 rounded-full transition-colors mb-4"
+        style="background: #f5a623; color: #2d0f5e; display: block; max-width: 360px; margin: 0 auto 16px;"
+      >
+        Get the Starter Bundle — $36/mo
+      </a>
+      <p class="mt-6 text-sm" style="color: rgb(250 247 242 / 60%);">
+        Want more? <a href="/upgrade" class="underline" style="color: #f5a623;">See PRO &amp; VIP memberships →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ teaser -->
+  <FAQs
+    tagline="Quick answers"
+    title="Common questions"
+    subtitle="Full FAQ at /faq — but here's the short version."
+    classes={{ container: 'max-w-4xl' }}
+    items={[
+      {
+        title: 'What exactly do I get when I buy?',
+        description: 'A printed workbook shipped to your address (US), plus immediate digital access to 10 video lessons hosted on this site. No apps to download, no accounts to create — just click the link in your welcome email.',
+      },
+      {
+        title: 'Do I need any paid tools or subscriptions?',
+        description: 'No. Every tool covered in the lessons has a free tier that\'s enough to start making money. You only upgrade a tool when the free tier becomes a bottleneck — which means you\'re already earning.',
+      },
+      {
+        title: 'What if I have zero tech skills?',
+        description: 'This was built for that. The whole premise is that AI removes the technical barrier. If you can type and follow steps, you can do everything in this course.',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0" style="background: #fef3d8;"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- Newsletter capture ($9/mo) -->
+  <section class="py-16" style="background: #ede0f9;">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: #5a2fa0;">$9/month — cancel any time</p>
+      <h2 class="text-3xl md:text-4xl font-black mb-3" style="font-family: 'Space Grotesk', sans-serif; color: #2d0f5e;">
+        Not ready to buy? Join the Hustle Newsletter.
+      </h2>
+      <p class="text-lg mb-8" style="color: rgb(26 10 46 / 70%);">
+        1 new lesson every month. AI side hustle tips, tool breakdowns, and what's actually making money right now.
+      </p>
+      <GhlForm formId="rP7ge4Iw0ivjwsJaA7hA" formName="Newsletter Signup" height={433} />
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <CallToAction
+    actions={[
+      { variant: 'primary', text: 'Get the Starter Bundle — $36/mo', href: BUY_URL },
+    ]}
+  >
+    <Fragment slot="title">
+      Your AI side hustle<br class="block sm:hidden" /><span class="sm:whitespace-nowrap"> starts now.</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      10 lessons. A printed workbook. Free tools. Everything you need is in this pack.
+    </Fragment>
+  </CallToAction>
+
+</Layout>
+
+<style>
+/* =========================================================
+   KEYFRAME DEFINITIONS
+   ========================================================= */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: none; }
+  50%       { text-shadow: 0 0 22px rgba(245,158,11,.65), 0 0 45px rgba(245,158,11,.28); }
+}
+
+@keyframes shimmer {
+  0%       { left: -100%; }
+  55%, 100% { left: 160%;  }
+}
+
+@keyframes pulseOut {
+  0%   { transform: scale(1);    opacity: .75; }
+  100% { transform: scale(1.28); opacity: 0;   }
+}
+
+@keyframes ambFloat {
+  0%, 100% { transform: translateY(0);    }
+  50%       { transform: translateY(-28px); }
+}
+
+@keyframes ambFloat2 {
+  0%, 100% { transform: translateY(-18px); }
+  50%       { transform: translateY(22px);  }
+}
+
+/* =========================================================
+   ENTRANCE ANIMATIONS — respect prefers-reduced-motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-enter {
+    animation: fadeUp 600ms ease-out var(--hero-delay, 0ms) both;
+  }
+
+  /* "starts here." gets fadeUp + glow pulse chained */
+  #hero-accent {
+    animation:
+      scaleIn   600ms ease-out 300ms both,
+      glowPulse 3s    ease-in-out 1200ms infinite;
+  }
+
+  .hero-img-col {
+    animation: fadeUp 700ms ease-out var(--hero-delay, 200ms) both;
+  }
+}
+
+/* When reduced motion is preferred: ensure elements are visible */
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter,
+  #hero-accent,
+  .hero-img-col {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =========================================================
+   AMBIENT FLOATING ELEMENTS
+   ========================================================= */
+
+.amb-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(28px);
+}
+.amb-dot {
+  position: absolute;
+  border-radius: 50%;
+}
+.amb-sym {
+  position: absolute;
+  font-size: 1.5rem;
+  color: rgba(245,158,11,.18);
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .amb-orb  { animation: ambFloat  var(--dur, 14s) ease-in-out var(--del, 0s) infinite; }
+  .amb-dot  { animation: ambFloat2 var(--dur, 10s) ease-in-out var(--del, 0s) infinite; }
+  .amb-sym  { animation: ambFloat  var(--dur, 15s) ease-in-out var(--del, 0s) infinite; }
+}
+
+/* =========================================================
+   STAT CHIPS
+   ========================================================= */
+
+.stat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.stat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: .875rem;
+  font-weight: 500;
+  color: white;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+.stat-chip strong { font-weight: 700; }
+.chip-lbl         { opacity: .70; }
+
+/* =========================================================
+   SOCIAL PROOF STRIP
+   ========================================================= */
+
+.hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.proof-stars { color: #f59e0b; font-size: 1.1rem; letter-spacing: .1em; }
+.proof-text  { font-size: .875rem; color: rgba(250,247,242,.65); }
+
+.avatars {
+  display: flex;
+  margin-left: 4px;
+}
+.avatars .av + .av { margin-left: -8px; }
+
+.av {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+  border: 2px solid #0f0a1e;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   CTA BUTTONS
+   ========================================================= */
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Wrapper positions the pulse ring relative to the button */
+.hero-btn-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Primary button */
+.hero-btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 1.05rem;
+  color: white;
+  background: linear-gradient(135deg, #7c3aed 0%, #f59e0b 100%);
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 200ms ease, filter 200ms ease;
+  z-index: 1;
+}
+
+.hero-btn-primary:hover {
+  transform: scale(1.04);
+  filter: brightness(1.1);
+}
+
+/* Shimmer sweep */
+.hero-btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  bottom: 0;
+  width: 55%;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.28) 50%, transparent 70%);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-btn-primary::after {
+    animation: shimmer 3s ease-in-out 1s infinite;
+  }
+}
+
+/* Pulse ring */
+.pulse-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 2px solid rgba(245,158,11,.55);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pulse-ring {
+    animation: pulseOut 2s ease-out infinite;
+  }
+}
+
+/* Secondary button */
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .9rem;
+  color: rgba(250,247,242,.82);
+  border: 1px solid rgba(250,247,242,.22);
+  text-decoration: none;
+  transition: border-color 200ms, color 200ms;
+  white-space: nowrap;
+}
+
+.hero-btn-secondary:hover {
+  border-color: rgba(245,158,11,.60);
+  color: #f5a623;
+}
+
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
+
+.hero-img-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-product-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+  transform: none;
+  box-shadow:
+    0 28px 64px rgba(0,0,0,.55),
+    0 0 36px rgba(124,58,237,.22),
+    0 0 70px rgba(245,158,11,.10);
+  transition: transform 400ms ease, box-shadow 400ms ease;
+}
+
+.hero-product-img:hover {
+  transform: rotate(1.5deg) scale(1.025);
+  box-shadow:
+    0 32px 72px rgba(0,0,0,.60),
+    0 0 44px rgba(124,58,237,.28),
+    0 0 80px rgba(245,158,11,.15);
+}
+
+/* Hide image on very small screens so it doesn't crowd the text */
+@media (max-width: 640px) {
+  .hero-img-col { display: none; }
+}
+
+</style>
