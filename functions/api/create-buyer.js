@@ -24,6 +24,7 @@ export async function onRequestPost({ request, env }) {
   }
 
   const clerk = createClerkClient({ secretKey: env.CLERK_SECRET_KEY });
+  try {
 
   // Find or create Clerk user
   let userId;
@@ -87,4 +88,9 @@ export async function onRequestPost({ request, env }) {
   return new Response(JSON.stringify({ accessUrl }), {
     headers: { 'Content-Type': 'application/json' },
   });
+  } catch (err) {
+    return new Response(JSON.stringify({ error: err.message, stack: err.stack }), {
+      status: 500, headers: { 'Content-Type': 'application/json' },
+    });
+  }
 }
