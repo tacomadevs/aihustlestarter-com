@@ -15,6 +15,7 @@ const metadata = { title: 'Sign In — AI HustleStarter' };
       await window.Clerk.load({
         signInUrl: '/sign-in',
         signUpUrl: '/sign-in',
+        appearance: {},
       });
 
       if (window.Clerk.user) {
