@@ -43,7 +43,8 @@ export async function onRequestPost({ request, env }) {
   });
 
   const accessUrl = `https://aihustlestarter.com/lessons/access?token=${signInToken.token}`;
-  const greeting = firstName ? `Hi ${firstName}` : 'Hi there';
+  const escHtml = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  const greeting = firstName ? `Hi ${escHtml(firstName)}` : 'Hi there';
 
   // Send access email directly via GHL conversations API
   if (contactId && env.GHL_API_KEY) {
