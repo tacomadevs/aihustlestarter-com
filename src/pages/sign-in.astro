@@ -11,21 +11,27 @@ const metadata = { title: 'Sign In — AI HustleStarter' };
 
 <script is:inline>
   async function initSignIn() {
-    await window.Clerk.load({
-      signInUrl: '/sign-in',
-      signUpUrl: '/sign-in',
-    });
+    try {
+      await window.Clerk.load({
+        signInUrl: '/sign-in',
+        signUpUrl: '/sign-in',
+      });
 
-    if (window.Clerk.user) {
-      window.location.href = '/lessons';
-      return;
+      if (window.Clerk.user) {
+        window.location.href = '/lessons';
+        return;
+      }
+
+      window.Clerk.mountSignIn(document.getElementById('sign-in-mount'), {
+        routing: 'virtual',
+        fallbackRedirectUrl: '/lessons',
+        signUpFallbackRedirectUrl: '/lessons',
+      });
+    } catch (err) {
+      document.getElementById('sign-in-mount').innerHTML =
+        '<p style="color:#f5a623;font-family:sans-serif;padding:20px">Auth error: ' + err.message + '</p>';
+      console.error('Clerk init error:', err);
     }
-
-    window.Clerk.mountSignIn(document.getElementById('sign-in-mount'), {
-      routing: 'virtual',
-      fallbackRedirectUrl: '/lessons',
-      signUpFallbackRedirectUrl: '/lessons',
-    });
   }
 </script>
 
