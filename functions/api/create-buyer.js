@@ -5,11 +5,12 @@ export async function onRequestPost({ request, env }) {
     return new Response('Unauthorized', { status: 401 });
   }
 
-  let email, contactId;
+  let email, contactId, firstName;
   try {
     const body = await request.json();
     email = body.email?.toLowerCase().trim();
     contactId = body.id;
+    firstName = body.firstName || body.first_name || '';
   } catch {
     return new Response(JSON.stringify({ error: 'Invalid JSON' }), {
       status: 400, headers: { 'Content-Type': 'application/json' },
@@ -42,18 +43,37 @@ export async function onRequestPost({ request, env }) {
   });
 
   const accessUrl = `https://aihustlestarter.com/lessons/access?token=${signInToken.token}`;
+  const greeting = firstName ? `Hi ${firstName}` : 'Hi there';
 
-  // Write access URL directly to GHL contact field
+  // Send access email directly via GHL conversations API
   if (contactId && env.GHL_API_KEY) {
-    await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}`, {
-      method: 'PUT',
+    const emailHtml = `
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;max-width:600px;margin:0 auto;background:#0f0a1e;color:#ffffff;padding:40px 32px;border-radius:8px;">
+        <div style="margin-bottom:24px;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:900;letter-spacing:.08em;color:#ffffff;">AI HUSTLE</span>
+          <span style="background:#f5a623;color:#2d0f5e;font-size:10px;font-weight:700;letter-spacing:.12em;padding:2px 8px;border-radius:4px;margin-left:6px;vertical-align:middle;">STARTER PACK</span>
+        </div>
+        <h1 style="font-size:24px;font-weight:700;margin:0 0 16px;">Your lessons are ready 🎉</h1>
+        <p style="color:#ccc;margin:0 0 24px;">${greeting}, your AI HustleStarter access is live. Click below to get in — the link signs you in automatically.</p>
+        <a href="${accessUrl}" style="display:inline-block;background:#f5a623;color:#2d0f5e;font-weight:700;padding:14px 28px;border-radius:6px;text-decoration:none;font-size:16px;">Access My Lessons →</a>
+        <p style="color:#888;font-size:13px;margin:32px 0 0;">Link expires in 24 hours. After that, sign in at <a href="https://aihustlestarter.com/sign-in" style="color:#f5a623;">aihustlestarter.com/sign-in</a> with this email address.</p>
+      </div>
+    `;
+
+    await fetch('https://services.leadconnectorhq.com/conversations/messages', {
+      method: 'POST',
       headers: {
         'Authorization': `Bearer ${env.GHL_API_KEY}`,
         'Version': '2021-07-28',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        customFields: [{ id: '5mff8UprF49uJHpZ8edN', field_value: accessUrl }],
+        type: 'Email',
+        contactId,
+        subject: 'Your AI HustleStarter lessons are ready',
+        html: emailHtml,
+        from: 'hello@mg.aihustlestarter.com',
+        to: email,
       }),
     });
   }
