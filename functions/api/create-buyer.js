@@ -41,7 +41,7 @@ export async function onRequestPost({ request, env }) {
       const createRes = await fetch(`${CLERK_API}/users`, {
         method: 'POST',
         headers: clerkHeaders,
-        body: JSON.stringify({ email_address: [email] }),
+        body: JSON.stringify({ email_address: [email], skip_password_requirement: true }),
       });
       const newUser = await createRes.json();
       if (!newUser.id) throw new Error(`Clerk create user failed: ${JSON.stringify(newUser)}`);
@@ -106,7 +106,7 @@ export async function onRequestPost({ request, env }) {
 
   } catch (err) {
     console.error('[create-buyer]', err);
-    return new Response(JSON.stringify({ error: err.message }), {
+    return new Response(JSON.stringify({ error: 'Internal server error' }), {
       status: 500, headers: { 'Content-Type': 'application/json' },
     });
   }
