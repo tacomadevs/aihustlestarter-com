@@ -11,7 +11,10 @@ const metadata = { title: 'Sign In — AI HustleStarter' };
 
 <script is:inline>
   async function initSignIn() {
-    await window.Clerk.load();
+    await window.Clerk.load({
+      signInUrl: '/sign-in',
+      signUpUrl: '/sign-in',
+    });
 
     if (window.Clerk.user) {
       window.location.href = '/lessons';
@@ -19,8 +22,9 @@ const metadata = { title: 'Sign In — AI HustleStarter' };
     }
 
     window.Clerk.mountSignIn(document.getElementById('sign-in-mount'), {
-      afterSignInUrl: '/lessons',
-      afterSignUpUrl: '/lessons',
+      routing: 'virtual',
+      fallbackRedirectUrl: '/lessons',
+      signUpFallbackRedirectUrl: '/lessons',
     });
   }
 </script>
