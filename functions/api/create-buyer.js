@@ -106,7 +106,7 @@ export async function onRequestPost({ request, env }) {
 
   } catch (err) {
     console.error('[create-buyer]', err);
-    return new Response(JSON.stringify({ error: 'Internal server error' }), {
+    return new Response(JSON.stringify({ error: err.message }), {
       status: 500, headers: { 'Content-Type': 'application/json' },
     });
   }
