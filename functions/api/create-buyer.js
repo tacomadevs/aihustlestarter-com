@@ -61,7 +61,7 @@ export async function onRequestPost({ request, env }) {
       </div>
     `;
 
-    await fetch('https://services.leadconnectorhq.com/conversations/messages', {
+    const emailRes = await fetch('https://services.leadconnectorhq.com/conversations/messages', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${env.GHL_API_KEY}`,
@@ -71,11 +71,16 @@ export async function onRequestPost({ request, env }) {
       body: JSON.stringify({
         type: 'Email',
         contactId,
+        locationId: 'k5gAHEPJ0s1fTINnarq1',
         subject: 'Your AI HustleStarter lessons are ready',
         html: emailHtml,
-        from: 'hello@mg.aihustlestarter.com',
-        to: email,
+        emailFrom: 'hello@mg.aihustlestarter.com',
+        emailTo: email,
       }),
+    });
+    const emailResult = await emailRes.json().catch(() => ({}));
+    return new Response(JSON.stringify({ accessUrl, emailStatus: emailRes.status, emailResult }), {
+      headers: { 'Content-Type': 'application/json' },
     });
   }
 
