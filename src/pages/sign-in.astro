@@ -15,7 +15,6 @@ const metadata = { title: 'Sign In — AI HustleStarter' };
       await window.Clerk.load({
         signInUrl: '/sign-in',
         signUpUrl: '/sign-in',
-        appearance: {},
       });
 
       if (window.Clerk.user) {
@@ -25,8 +24,8 @@ const metadata = { title: 'Sign In — AI HustleStarter' };
 
       window.Clerk.mountSignIn(document.getElementById('sign-in-mount'), {
         routing: 'virtual',
-        fallbackRedirectUrl: '/lessons',
-        signUpFallbackRedirectUrl: '/lessons',
+        afterSignInUrl: '/lessons',
+        afterSignUpUrl: '/lessons',
       });
     } catch (err) {
       document.getElementById('sign-in-mount').innerHTML =
@@ -39,7 +38,7 @@ const metadata = { title: 'Sign In — AI HustleStarter' };
 <script
   is:inline
   data-clerk-publishable-key="pk_live_Y2xlcmsuYWlodXN0bGVzdGFydGVyLmNvbSQ"
-  src="https://clerk.aihustlestarter.com/npm/@clerk/clerk-js@6.14.0/dist/clerk.browser.js"
+  src="https://clerk.aihustlestarter.com/npm/@clerk/clerk-js@4.73.14/dist/clerk.browser.js"
   crossorigin="anonymous"
   onload="initSignIn()"
 ></script>
